@@ -8,7 +8,7 @@ This website will provide eight questions and answers. Each question will be acc
 
 ![image](https://github.com/SeaKaByt/Quiz-Website/assets/88830273/d11b4211-16e7-4cdd-b492-744ae4b392c7)
 
-# When the user submits the question, the correct answer rate will be reported.
+# When the user submits the question, the correct answer rate will be reported to user.
 
 ![image](https://github.com/SeaKaByt/Quiz-Website/assets/88830273/040d7804-c307-43d1-afb4-ab2af01e911e)
 
