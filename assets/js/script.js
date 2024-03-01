@@ -113,7 +113,6 @@ function generateQuestionHTML(questionObj, index) {
             </div>`;
 }
 
-// 將 questions 轉換為以問題 ID 為鍵的對象
 const questionMap = {};
 questions.forEach((question, index) => {
     questionMap[`q${index}`] = question.correctAnswer;
@@ -123,27 +122,21 @@ function calculateAccuracy(userAnswers, correctAnswers) {
     const totalQuestions = Object.keys(userAnswers).length;
     let correctCount = 0;
 
-    // 遍歷每一題的答案，檢查是否正確
     for (const questionId in userAnswers) {
         const userAnswer = userAnswers[questionId].answer;
         const correctAnswer = correctAnswers[`q${questionId}`];
 
-        // 將答案為 null 的情況視為錯誤
         if (userAnswer !== null && userAnswer === correctAnswer) {
             correctCount++;
         }
     }
 
-    // 計算準確度
     const accuracy = (correctCount / totalQuestions) * 100;
 
-    // 獲取顯示結果的元素
     const resultContainer = document.getElementById("result-container");
 
-    // 清空元素內容
     resultContainer.innerHTML = "";
 
-    // 顯示正確答案和準確性
     resultContainer.innerHTML = `Correct Answers: ${correctCount}/${totalQuestions} (${accuracy}%)`;
 
     return accuracy;
@@ -164,7 +157,6 @@ function generateQuiz() {
 
 let startTime;
 
-// 在頁面載入時記錄進入時間
 window.onload = function () {
     startTime = new Date();
 };
@@ -176,22 +168,18 @@ $(document).ready(function () {
 
     // Submit button click event
     $('#submit-btn').on('click', function () {
-        // 計算逗留時間
         const submissionTime = new Date();
         const elapsedTime = submissionTime - startTime;
 
-        // 重置 startTime
         startTime = new Date();
-        // 計算正確答案和準確性
         calculateAccuracy(userAnswers, questionMap);
         sendDataToServer(submissionTime, elapsedTime, calculateAccuracy(userAnswers, questionMap));
     });
 });
 
 function sendDataToServer(submissionTime, elapsedTime, accuracy) {
-    // 使用 jQuery AJAX 發送數據到伺服器
     $.ajax({
-        url: 'http://127.0.0.1/HKT Services Limited Test/database/submit.php',  // 請替換為你的伺服器端接收數據的文件路徑
+        url: 'http://127.0.0.1/Quiz Website/database/submit.php',
         method: 'POST',
         data: {
             submissionTime: submissionTime,
@@ -199,11 +187,9 @@ function sendDataToServer(submissionTime, elapsedTime, accuracy) {
             accuracy: accuracy
         },
         success: function (response) {
-            // 處理伺服器端的回應
             console.log(response);
         },
         error: function (error) {
-            // 處理錯誤
             console.error(error);
         }
     });

@@ -23,7 +23,7 @@ button {
     cursor: pointer;
     font-size: 16px;
     font-weight: bold;
-    margin-left: 42%;
+    margin-left: 45%;
 }
 
 button:hover {
@@ -34,6 +34,5 @@ button:hover {
     margin-top: 20px;
     font-size: 18px;
     font-weight: bold;
-    margin-left: 40%;
+    margin-left: 44%;
 }
-
