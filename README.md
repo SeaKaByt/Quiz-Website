@@ -16,3 +16,4 @@ This website will provide eight questions and answers. Each question will be acc
 
 ![image](https://github.com/SeaKaByt/Quiz-Website/assets/88830273/58212e6f-32dd-4b3f-8afc-1895cd349ea9)
 
+![image](https://github.com/SeaKaByt/Quiz-Website/assets/88830273/d83271b4-7757-42d7-bb0f-ff60438c743c)
